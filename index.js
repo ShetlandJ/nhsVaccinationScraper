@@ -81,6 +81,7 @@ const vaccineSearchScraper = (async (url, postcode) => {
     }
 
     console.table(data);
+    process.exit(1)
 })
 
 function percentage(partialValue, totalValue) {
@@ -94,8 +95,13 @@ function delay(time) {
  }
 
  const getUserInput = async () => {
-    const url = reader.question('Please enter the url: ');
-    const postcode = reader.question('Please enter your postcode: ');
+    const url = reader.question('Please enter the url: ', {
+        hideEchoBack: true
+    });
+
+    const postcode = reader.question('Please enter your postcode: ', {
+        hideEchoBack: true
+    });
 
     vaccineSearchScraper(url, postcode);
 }
