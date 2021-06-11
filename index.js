@@ -44,7 +44,7 @@ const vaccineSearchScraper = (async (url, postcode) => {
             const elChildren = links[i].children;
 
             const milesText = elChildren[0].innerText;
-            const miles = `${milesText[0]}${milesText[1]}`;
+            const miles = Number(`${milesText[0]}${milesText[1]}`);
 
             if (links && links[i] && elChildren) {
                 elChildren[1].children[0].click();
