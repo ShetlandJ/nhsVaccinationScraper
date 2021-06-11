@@ -73,9 +73,7 @@ const vaccineSearchScraper = (async (url, postcode) => {
         payload.push({...milesAndLocation, dates})
         data.push(...payload);
 
-        if (i > 0) {
-            console.log(`${percentage(i, numberOfResults)}% completed`);
-        }
+        console.log(`${percentage(i + 1, numberOfResults)}% completed`);
 
         await page.goBack();
     }
